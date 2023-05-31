@@ -1,0 +1,32 @@
+{
+  "name": "superherowebapp",
+  "version": "1.0.0",
+  "description": "Small CRUD Web app with superheroes",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:sass": "node-sass src/sass/main.scss src/pages/main/resources/style/style.css -w",
+    "devserver": "live-server",
+    "start": "npm-run-all --parallel devserver watch:sass",
+    "compile:sass": "node-sass sass/main.scss css/style.comp.css",
+    "prefix:css": "postcss --use autoprefixer -b 'last 10 versions' css/style.concat.css -o css/style.prefix.css",
+    "compress:css": "node-sass css/style.prefix.css css/style.css --output-style compressed",
+    "build:css": "npm-run-all compile:sass concat:css prefix:css compress:css"
+  },
+  "keywords": [
+    "web",
+    "app",
+    "crud",
+    "superhero"
+  ],
+  "author": "Oleksiy Danilov",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "live-server": "^1.2.2",
+    "node-sass": "^9.0.0"
+  }
+}
